@@ -1,16 +1,18 @@
-# whatsapp_redesign_ios
+# Flutter - WhatsApp UI Redesign Concept
 
-A new Flutter project.
+This repository contains the flutter application for the “WhatsApp Messenger Redesign” Concept.
 
-## Getting Started
+https://www.uplabs.com/posts/whatsapp-messenger-redesign
 
-This project is a starting point for a Flutter application.
+## Gallery
 
-A few resources to get you started if this is your first Flutter project:
+### Home Page
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img src="S:\projects\flutter_practice\whatsapp_redesign_ios\README\home-1.png" alt="home-1" style="zoom:40%;" />
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Settings Page
+
+<img src="S:\projects\flutter_practice\whatsapp_redesign_ios\README\settings-1.png" alt="settings-1" style="zoom:40%;" />
+
+More pages to come....
+
