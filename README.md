@@ -8,11 +8,11 @@ https://www.uplabs.com/posts/whatsapp-messenger-redesign
 
 ### Home Page
 
-<img src="/README/home-1.png" alt="home-1" style="zoom:40%;" />
+<img src="/README/home-1.png" alt="home-1" style="zoom:20%;" />
 
 ### Settings Page
 
-<img src="/README/settings-1.png" alt="settings-1" style="zoom:40%;" />
+<img src="/README/settings-1.png" alt="settings-1" style="zoom:20%;" />
 
 More pages to come....
 
