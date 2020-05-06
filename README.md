@@ -8,11 +8,11 @@ https://www.uplabs.com/posts/whatsapp-messenger-redesign
 
 ### Home Page
 
-<img src="S:\projects\flutter_practice\whatsapp_redesign_ios\README\home-1.png" alt="home-1" style="zoom:40%;" />
+<img src="/README/home-1.png" alt="home-1" style="zoom:40%;" />
 
 ### Settings Page
 
-<img src="S:\projects\flutter_practice\whatsapp_redesign_ios\README\settings-1.png" alt="settings-1" style="zoom:40%;" />
+<img src="/README/settings-1.png" alt="settings-1" style="zoom:40%;" />
 
 More pages to come....
 
