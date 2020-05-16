@@ -2,6 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class WhatsAppHomeTopBar extends StatelessWidget {
+  WhatsAppHomeTopBar(this.title, {this.icon, this.iconAction});
+
+  final String title;
+  final Widget icon;
+  final iconAction;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,21 +16,18 @@ class WhatsAppHomeTopBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('WhatsApp',
-                style: TextStyle(fontSize: 18)),
+            Text(title, style: TextStyle(fontSize: 18)),
             Container(
                 width: 30.0,
                 height: 30.0,
                 decoration: BoxDecoration(
                     color: Color(0xFFE2E7EA),
                     borderRadius: BorderRadius.circular(50.0)),
-                child:
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/settings');
-                      },
-                      child: Icon(Icons.settings, color: Color(0xFF075E55), size: 20.0)
-                    ))
+                child: icon != null ? IconButton(
+                    icon: icon,
+                    onPressed: () {
+                      iconAction != null ? Navigator.pushNamed(context, iconAction) : print('pressed');
+                    }): Container())
           ],
         ));
   }

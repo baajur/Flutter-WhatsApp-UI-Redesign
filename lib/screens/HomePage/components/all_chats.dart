@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 class WhatsAppHomeAllChats extends StatelessWidget {
   WhatsAppHomeAllChats(this.all_chats);
 
@@ -47,23 +48,21 @@ class WhatsAppHomeAllChats extends StatelessWidget {
 
   Widget unreadMessagesCircle(unread_messages) {
     return Container(
-              width: 20,
-              height: 20,
-              margin: EdgeInsets.all(2),
-              padding: EdgeInsets.all(3),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15), color: Colors.green),
-              child: Text(unread_messages.toString(),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      
-                      fontSize: 10,
-                      color: Colors.white)),
-            );
+      width: 20,
+      height: 20,
+      margin: EdgeInsets.all(2),
+      padding: EdgeInsets.all(3),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15), color: Colors.green),
+      child: Text(unread_messages.toString(),
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 10, color: Colors.white)),
+    );
   }
 
   Widget chat_list(user) {
-    return Container(
+    return GestureDetector(
+        child: Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       // padding: EdgeInsets.all(5),
       // decoration: BoxDecoration(border: Border.all()),
@@ -79,8 +78,7 @@ class WhatsAppHomeAllChats extends StatelessWidget {
                       alignment: Alignment.topLeft,
                       child: Text(user['name'],
                           textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontSize: 15)))),
+                          style: TextStyle(fontSize: 15)))),
               Container(
                   margin: EdgeInsets.all(2),
                   child: Align(
@@ -88,9 +86,7 @@ class WhatsAppHomeAllChats extends StatelessWidget {
                       child: Text(user['recentMessage'],
                           textAlign: TextAlign.start,
                           style: TextStyle(
-                              
-                              fontSize: 12,
-                              color: Color(0xFF898989))))),
+                              fontSize: 12, color: Color(0xFF898989))))),
             ],
           )),
           Column(children: [
@@ -99,27 +95,27 @@ class WhatsAppHomeAllChats extends StatelessWidget {
                 padding: EdgeInsets.all(3),
                 child: Text(user['time'],
                     textAlign: TextAlign.start,
-                    style: TextStyle(
-                        
-                        fontSize: 15,
-                        color: Color(0xFF898989)))),
-            user['unreadMessages'] !=0 ? unreadMessagesCircle(user['unreadMessages']) : Container()
+                    style: TextStyle(fontSize: 15, color: Color(0xFF898989)))),
+            user['unreadMessages'] != 0
+                ? unreadMessagesCircle(user['unreadMessages'])
+                : Container()
           ])
         ],
       ),
-    );
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: EdgeInsets.symmetric(horizontal: 15.0),
-        margin: EdgeInsets.symmetric(vertical: 10.0),
-        child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount: all_chats.length,
-            itemBuilder: (BuildContext cntx, int index) {
-              return chat_list(all_chats[index]);
-            }));
+    return Expanded(
+        child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 15.0),
+            margin: EdgeInsets.symmetric(vertical: 10.0),
+            child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: all_chats.length,
+                itemBuilder: (BuildContext cntx, int index) {
+                  return chat_list(all_chats[index]);
+                })));
   }
 }
