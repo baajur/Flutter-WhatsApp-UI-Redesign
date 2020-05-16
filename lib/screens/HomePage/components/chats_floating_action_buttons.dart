@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
 
-class FloatingActionButtons extends StatefulWidget {
+class ChatsFloatingActionButtons extends StatefulWidget {
   @override
-  _FloatingActionButtons createState() => _FloatingActionButtons();
+  _ChatsFloatingActionButtons createState() => _ChatsFloatingActionButtons();
 }
 
-class _FloatingActionButtons extends State<FloatingActionButtons> {
+class _ChatsFloatingActionButtons extends State<ChatsFloatingActionButtons> {
   bool chat_options = false;
   double options_width = 70.0;
 

@@ -59,7 +59,7 @@ class Profile extends StatelessWidget {
                                       child: IconButton(
                                           color: Colors.green,
                                           onPressed: null,
-                                          icon: Icon(LineAwesomeIcons.camera,
+                                          icon: Icon(Icons.camera_alt,
                                               size: 22,
                                               color: Color(0xff35A897)))))
                             ],
@@ -83,7 +83,7 @@ class Profile extends StatelessWidget {
                             children: <Widget>[
                               Text('Name',
                                   style: TextStyle(color: Color(0xff808080))),
-                              Text('Shashikant',
+                              Text('Shashikant Dwivedi',
                                   style: TextStyle(
                                       color: Colors.black87, fontSize: 18)),
                             ],

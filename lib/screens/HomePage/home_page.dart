@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:line_awesome_icons/line_awesome_icons.dart';
 import 'package:whatsapp_redesign_ios/initializer.dart';
-import 'components/floating_action_buttons.dart';
+import 'calls.dart';
+import 'components/chats_floating_action_buttons.dart';
+import 'components/calls_floating_action_button.dart';
 import 'chats.dart';
 import 'profile.dart';
 
@@ -17,8 +18,8 @@ class _HomePage extends State<HomePage> {
     final initializer = Provider.of<Initializer>(context);
     return Scaffold(
         floatingActionButton: initializer.homePageIndex == 0
-            ? FloatingActionButtons()
-            : (initializer.homePageIndex == 1 ? Container() : Container()),
+            ? ChatsFloatingActionButtons()
+            : (initializer.homePageIndex == 1 ? CallsFloatingActionButtons() : Container()),
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: initializer.homePageIndex,
             onTap: (index) {
@@ -35,6 +36,6 @@ class _HomePage extends State<HomePage> {
             ]),
         body: initializer.homePageIndex == 0
             ? Chats()
-            : (initializer.homePageIndex == 1 ? Chats() : Profile()));
+            : (initializer.homePageIndex == 1 ? Calls() : Profile()));
   }
 }
