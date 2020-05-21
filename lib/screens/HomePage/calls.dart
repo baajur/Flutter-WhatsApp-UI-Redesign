@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'components/search_bar.dart';
 import 'components/top_bar.dart';
 import 'components/all_calls.dart';
+import 'package:whatsapp_redesign_ios/initializer.dart';
+import 'package:provider/provider.dart';
 
 final allCalls = [
   {
@@ -42,10 +44,11 @@ class Calls extends StatefulWidget {
 class _Calls extends State<Calls> {
   @override
   Widget build(BuildContext context) {
+    final initializer = Provider.of<Initializer>(context);
     return SafeArea(
         child: Container(
             child: Column(children: [
-      WhatsAppHomeTopBar('WhatsApp',
+      initializer.searchBar? Container() : WhatsAppHomeTopBar('WhatsApp',
           icon: Icon(Icons.settings, color: Color(0xFF075E55), size: 15.0),
           iconAction: '/settings'),
       WhatsAppHomeSearchBar(),

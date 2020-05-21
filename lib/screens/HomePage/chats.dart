@@ -59,7 +59,7 @@ final allChats = [
     'status': true
   },
   {
-    'name': 'Rohit Goyal',
+    'name': 'Anjali Vaishnav',
     'image': 'assets/images/profile/profile6.webp',
     'recentMessage': 'How are you ?',
     'time': '07:00',
@@ -92,19 +92,18 @@ class Chats extends StatefulWidget {
 class _Chats extends State<Chats> {
   @override
   Widget build(BuildContext context) {
+     final initializer = Provider.of<Initializer>(context);
     return SafeArea(
         child: Container(
-            // padding: EdgeInsets.all(25.0),
-            // decoration: BoxDecoration(color: Color(0xFFE5E5E5),),
             color: Colors.white,
             child: Column(
               children: [
-                WhatsAppHomeTopBar(
+                initializer.searchBar? Container() : WhatsAppHomeTopBar(
                     'WhatsApp',
                     icon: Icon(Icons.settings, color: Color(0xFF075E55), size: 15.0),
                     iconAction: '/settings'),
                 WhatsAppHomeSearchBar(),
-                WhatsAppHomeStatusBar(status),
+                initializer.searchBar? Container() : WhatsAppHomeStatusBar(status),
                 WhatsAppHomeAllChats(allChats)
               ],
             )));
