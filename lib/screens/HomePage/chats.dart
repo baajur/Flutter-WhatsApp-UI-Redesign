@@ -103,8 +103,7 @@ class _Chats extends State<Chats> {
                     icon: Icon(Icons.settings, color: Color(0xFF075E55), size: 15.0),
                     iconAction: '/settings'),
                 WhatsAppHomeSearchBar(),
-                initializer.searchBar? Container() : WhatsAppHomeStatusBar(status),
-                WhatsAppHomeAllChats(allChats)
+                WhatsAppHomeAllChats(allChats, status)
               ],
             )));
   }

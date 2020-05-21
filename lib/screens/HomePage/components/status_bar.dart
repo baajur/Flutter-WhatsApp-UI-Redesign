@@ -45,7 +45,7 @@ class WhatsAppHomeStatusBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10.0),
-      padding: EdgeInsets.only(left: 15.0),
+      // padding: EdgeInsets.only(left: 15.0),
       // decoration: BoxDecoration(border: Border.all()),
       height: 60.0,
       child: ListView.builder(

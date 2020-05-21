@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
+import 'package:provider/provider.dart';
+import 'package:whatsapp_redesign_ios/initializer.dart';
 
 class ChatsFloatingActionButtons extends StatefulWidget {
   @override
@@ -29,7 +31,7 @@ class _ChatsFloatingActionButtons extends State<ChatsFloatingActionButtons> {
     });
   }
 
-  Widget moreOptions() {
+  Widget moreOptions(initializer, context) {
     return Container(
         width: 160.0,
         height: 55.0,
@@ -45,25 +47,36 @@ class _ChatsFloatingActionButtons extends State<ChatsFloatingActionButtons> {
         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Container(
               margin: EdgeInsets.all(10),
-              child: Icon(LineAwesomeIcons.search, color: Colors.white)),
+              child: GestureDetector(
+                child: Icon(LineAwesomeIcons.search, color: Colors.white),
+                onTap: () {
+                  initializer.toogleSearchBar();
+                },
+              )),
           Container(
               margin: EdgeInsets.all(10),
               child: Icon(LineAwesomeIcons.bullhorn, color: Colors.white)),
           Container(
               margin: EdgeInsets.all(10),
-              child: Icon(LineAwesomeIcons.user_plus, color: Colors.white)),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/newChatSelectContact');
+                },
+                child: Icon(LineAwesomeIcons.user_plus, color: Colors.white))),
+              
         ]));
   }
 
   @override
   Widget build(BuildContext context) {
+    final initializer = Provider.of<Initializer>(context);
     return Container(
       // decoration: BoxDecoration(border: Border.all()),
       width: options_width,
       height: 60.0,
       child: Stack(
         children: <Widget>[
-          chat_options ? moreOptions() : Container(),
+          chat_options ? moreOptions(initializer, context) : Container(),
           Positioned(
               right: 10.0,
               child: FloatingActionButton(

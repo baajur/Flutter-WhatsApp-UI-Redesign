@@ -53,6 +53,7 @@ class WhatsAppHomeSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final initializer = Provider.of<Initializer>(context);
+    
     return Container(
         padding: EdgeInsets.all(15.0),
         margin: EdgeInsets.symmetric(vertical: 10.0),

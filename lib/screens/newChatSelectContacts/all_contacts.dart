@@ -1,16 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'status_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsapp_redesign_ios/initializer.dart';
 
+class NewChatSelectContactAllContacts extends StatelessWidget {
+  NewChatSelectContactAllContacts(this.all_contacts, this.status);
 
-class WhatsAppHomeAllChats extends StatelessWidget {
-  WhatsAppHomeAllChats(this.all_chats, this.status);
-
-  final all_chats;
+  final all_contacts;
   final status;
-  var statusBarCount = false;
+  int initalized = 1;
 
   Widget userStatus() {
     return Positioned(
@@ -51,21 +49,8 @@ class WhatsAppHomeAllChats extends StatelessWidget {
     );
   }
 
-  Widget unreadMessagesCircle(unread_messages) {
-    return Container(
-      width: 20,
-      height: 20,
-      margin: EdgeInsets.all(2),
-      padding: EdgeInsets.all(3),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), color: Colors.green),
-      child: Text(unread_messages.toString(),
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 10, color: Colors.white)),
-    );
-  }
 
-  Widget chat_list(user) {
+  Widget contact_list(user) {
     return GestureDetector(
         child: Container(
       margin: EdgeInsets.symmetric(vertical: 10),
@@ -88,44 +73,77 @@ class WhatsAppHomeAllChats extends StatelessWidget {
                   margin: EdgeInsets.all(2),
                   child: Align(
                       alignment: Alignment.topLeft,
-                      child: Text(user['recentMessage'],
+                      child: Text(user['subTitle'],
                           textAlign: TextAlign.start,
                           style: TextStyle(
                               fontSize: 12, color: Color(0xFF898989))))),
             ],
           )),
-          Column(children: [
-            Container(
-                margin: EdgeInsets.all(2),
-                padding: EdgeInsets.all(3),
-                child: Text(user['time'],
-                    textAlign: TextAlign.start,
-                    style: TextStyle(fontSize: 15, color: Color(0xFF898989)))),
-            user['unreadMessages'] != 0
-                ? unreadMessagesCircle(user['unreadMessages'])
-                : Container()
-          ])
         ],
       ),
     ));
   }
 
+  Widget defaultOptions(Widget icon, String value) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      // padding: EdgeInsets.all(5),
+      // decoration: BoxDecoration(border: Border.all()),
+      child: Row(
+        children: [
+          Container(
+            width: 55,
+            height: 55,
+            margin: EdgeInsets.only(right: 10.0),
+            decoration:
+                BoxDecoration(borderRadius: BorderRadius.circular(27.5), color: Color(0xff00CA53)),
+            child: Stack(
+              children: [
+                Positioned(
+                    child: Container(
+                        // decoration: BoxDecoration(border: Border.all(), borderRadius: BorderRadius.circular(25.0)),
+                        // width: 60,
+                        // height: 60,
+                        child: Center(
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(27.5),
+                                child: icon))),
+                )],
+            ),
+          ),
+          Expanded(
+              child: Container(
+                  margin: EdgeInsets.all(2),
+                  child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(value,
+                          textAlign: TextAlign.start,
+                          style: TextStyle(fontSize: 15))))),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final initializer = Provider.of<Initializer>(context);
     return Expanded(
         child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15.0),
             margin: EdgeInsets.symmetric(vertical: 10.0),
             child: ListView.builder(
                 scrollDirection: Axis.vertical,
-                itemCount: all_chats.length,
+                itemCount: all_contacts.length,
                 itemBuilder: (BuildContext cntx, int index) {
-                  if (!statusBarCount ) {
-                    statusBarCount = true;
-                    return initializer.searchBar? Container() : WhatsAppHomeStatusBar(status);
+                  if (initalized == 1) {
+                    initalized = 2;
+                    return defaultOptions(Icon(Icons.person_add), 'New Contact');
                   }
-                  return chat_list(all_chats[index]);
+                  if (initalized == 2) {
+                    initalized = 3;
+                    return defaultOptions(Icon(Icons.group_add), 'New Group');
+                  }
+                  return contact_list(all_contacts[index]);
+                  // return Text('Hello World');
                 })));
   }
 }

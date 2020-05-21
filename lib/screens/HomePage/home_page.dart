@@ -19,10 +19,15 @@ class _HomePage extends State<HomePage> {
     return Scaffold(
         floatingActionButton: initializer.homePageIndex == 0
             ? ChatsFloatingActionButtons()
-            : (initializer.homePageIndex == 1 ? CallsFloatingActionButtons() : Container()),
+            : (initializer.homePageIndex == 1
+                ? CallsFloatingActionButtons()
+                : Container()),
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: initializer.homePageIndex,
             onTap: (index) {
+              if (initializer.searchBar) {
+                initializer.toogleSearchBar();
+              }
               initializer.setHomePageIndex(index);
             },
             selectedItemColor: Color(0xFF075E55),
