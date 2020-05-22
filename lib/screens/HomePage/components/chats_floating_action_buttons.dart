@@ -55,7 +55,11 @@ class _ChatsFloatingActionButtons extends State<ChatsFloatingActionButtons> {
               )),
           Container(
               margin: EdgeInsets.all(10),
-              child: Icon(LineAwesomeIcons.bullhorn, color: Colors.white)),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/newBroadcast');
+                },
+                child: Icon(LineAwesomeIcons.bullhorn, color: Colors.white))),
           Container(
               margin: EdgeInsets.all(10),
               child: GestureDetector(
