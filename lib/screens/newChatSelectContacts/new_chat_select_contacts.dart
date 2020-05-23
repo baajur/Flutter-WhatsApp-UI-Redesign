@@ -192,7 +192,12 @@ class _NewChatSelectContact extends State<NewChatSelectContact> {
         iconTheme: IconThemeData(color: Colors.black87),
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text('Select Contacts', style: TextStyle(color: Colors.black87)),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+          Text('Select Contacts', style: TextStyle(color: Colors.black87, fontSize: 18.0)),
+          Text('${allContacts.length} Contacts', style: TextStyle(color: Color(0xff808080), fontSize: 14.0))
+        ],),
         actions: <Widget>[
           IconButton(icon: Icon(LineAwesomeIcons.ellipsis_v), onPressed: null)
         ],

@@ -15,7 +15,7 @@ class _NewBroadcastSelectedContacts extends State<NewBroadcastSelectedContacts> 
         right: 0,
         child: GestureDetector(
           onTap: () {
-            initializer.toogleBroadcastSetUserSelected(index);
+            initializer.toggleBroadcastContact(index);
           },
           child: Container(
             decoration: BoxDecoration(
@@ -58,11 +58,12 @@ class _NewBroadcastSelectedContacts extends State<NewBroadcastSelectedContacts> 
       height: 60.0,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: initializer.allContacts.length,
+          itemCount: initializer.selectedContacts.length,
           itemBuilder: (BuildContext ctxt, int index) {
-            if (initializer.allContacts[index]['selected']) {
-              return statusIcon(initializer.allContacts[index]['selected'], initializer.allContacts[index]['image'], index, initializer);
+            if (initializer.selectedContacts[index]['selected']) {
+              return statusIcon(true, initializer.selectedContacts[index]['image'], index, initializer);
             }
+            return Container();
           }),
     );
   }
