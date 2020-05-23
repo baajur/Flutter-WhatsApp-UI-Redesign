@@ -6,6 +6,7 @@ import 'screens/SettingsPage/settings_page.dart';
 import 'screens/newChatSelectContacts/new_chat_select_contacts.dart';
 import 'screens/newCallSelectContacts/new_call_select_contacts.dart';
 import 'screens/newBroadcast/new_broadcast.dart';
+import 'screens/chat/chat.dart';
 
 void main() {
   runApp(WhatsApp());
@@ -25,6 +26,7 @@ class WhatsApp extends StatelessWidget {
           '/newChatSelectContact': (context) => ChangeNotifierProvider(create: (_) => Initializer(), child: NewChatSelectContact()),
           '/newCallSelectContact': (context) => ChangeNotifierProvider(create: (_) => Initializer(), child: NewCallSelectContact()),
           '/newBroadcast': (context) => ChangeNotifierProvider(create: (_) => Initializer(), child: NewBroadcast()),
+          '/chat': (context) => ChangeNotifierProvider(create: (_) => Initializer(), child: Chat()),
         } );
   }
 }

@@ -5,7 +5,14 @@ class Initializer with ChangeNotifier {
   bool topBar = true;
   bool statusBar = true;
   bool searchBar = false;
-  
+  String chatUserName;
+  bool chatUserStatus;
+
+  void setChatUser(name, status) {
+    chatUserName = name;
+    chatUserStatus = status;
+    notifyListeners();
+  }
 
 
 var allContacts = [

@@ -4,7 +4,6 @@ import 'status_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsapp_redesign_ios/initializer.dart';
 
-
 class WhatsAppHomeAllChats extends StatelessWidget {
   WhatsAppHomeAllChats(this.all_chats, this.status);
 
@@ -32,7 +31,7 @@ class WhatsAppHomeAllChats extends StatelessWidget {
     return Container(
       width: 55,
       height: 55,
-      margin: EdgeInsets.only(right: 10.0),
+      // margin: EdgeInsets.only(right: 10.0),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(27.5)),
       child: Stack(
         children: [
@@ -65,49 +64,39 @@ class WhatsAppHomeAllChats extends StatelessWidget {
     );
   }
 
-  Widget chat_list(user) {
-    return GestureDetector(
-        child: Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      // padding: EdgeInsets.all(5),
-      // decoration: BoxDecoration(border: Border.all()),
-      child: Row(
-        children: [
-          userIcon(user['image'], user['status']),
-          Expanded(
-              child: Column(
-            children: [
-              Container(
-                  margin: EdgeInsets.all(2),
-                  child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(user['name'],
-                          textAlign: TextAlign.start,
-                          style: TextStyle(fontSize: 15)))),
-              Container(
-                  margin: EdgeInsets.all(2),
-                  child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(user['recentMessage'],
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontSize: 12, color: Color(0xFF898989))))),
-            ],
-          )),
-          Column(children: [
-            Container(
-                margin: EdgeInsets.all(2),
-                padding: EdgeInsets.all(3),
-                child: Text(user['time'],
-                    textAlign: TextAlign.start,
-                    style: TextStyle(fontSize: 15, color: Color(0xFF898989)))),
-            user['unreadMessages'] != 0
-                ? unreadMessagesCircle(user['unreadMessages'])
-                : Container()
-          ])
-        ],
-      ),
-    ));
+  Widget chat_list(context, user, initializer) {
+    return ListTile(
+      onTap: () {
+        initializer.setChatUser(user['name'], user['status']);
+        print(initializer.chatUserName);
+        Navigator.pushNamed(context, '/chat');
+      },
+      leading: userIcon(user['image'], user['status']),
+      title: Container(
+          margin: EdgeInsets.all(2),
+          child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(user['name'],
+                  textAlign: TextAlign.start, style: TextStyle(fontSize: 15)))),
+      subtitle: Container(
+          margin: EdgeInsets.all(2),
+          child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(user['recentMessage'],
+                  textAlign: TextAlign.start,
+                  style: TextStyle(fontSize: 12, color: Color(0xFF898989))))),
+      trailing: Column(children: [
+        Container(
+            margin: EdgeInsets.all(2),
+            padding: EdgeInsets.all(3),
+            child: Text(user['time'],
+                textAlign: TextAlign.start,
+                style: TextStyle(fontSize: 15, color: Color(0xFF898989)))),
+        user['unreadMessages'] != 0
+            ? unreadMessagesCircle(user['unreadMessages'])
+            : Container(width: 0,)
+      ]),
+    );
   }
 
   @override
@@ -115,17 +104,19 @@ class WhatsAppHomeAllChats extends StatelessWidget {
     final initializer = Provider.of<Initializer>(context);
     return Expanded(
         child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 15.0),
-            margin: EdgeInsets.symmetric(vertical: 10.0),
+            
+            // margin: EdgeInsets.symmetric(vertical: 10.0),
             child: ListView.builder(
                 scrollDirection: Axis.vertical,
                 itemCount: all_chats.length,
                 itemBuilder: (BuildContext cntx, int index) {
-                  if (!statusBarCount ) {
+                  if (!statusBarCount) {
                     statusBarCount = true;
-                    return initializer.searchBar? Container() : WhatsAppHomeStatusBar(status);
+                    return initializer.searchBar
+                        ? Container()
+                        : WhatsAppHomeStatusBar(status);
                   }
-                  return chat_list(all_chats[index]);
+                  return chat_list(context, all_chats[index], initializer);
                 })));
   }
 }

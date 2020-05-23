@@ -32,6 +32,7 @@ class _NewBroadcast extends State<NewBroadcast> {
           IconButton(icon: Icon(LineAwesomeIcons.search), onPressed: null)
         ],
       ),
+      floatingActionButton: FloatingActionButton(onPressed: null, child: Icon(Icons.check), backgroundColor: Color(0xff00CA53),),
       body: SafeArea(child: Container(
         decoration: BoxDecoration(color: Colors.white10),
         child: Column(
