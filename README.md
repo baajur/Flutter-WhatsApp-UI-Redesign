@@ -1,16 +1,75 @@
-# whatsapp_redesign_ios
+![](https://img.shields.io/github/issues/shashikantdwivedi/Flutter-WhatsApp-UI-Redesign) ![](https://img.shields.io/github/forks/shashikantdwivedi/Flutter-WhatsApp-UI-Redesign) ![](https://img.shields.io/github/stars/shashikantdwivedi/Flutter-WhatsApp-UI-Redesign) ![](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fshashikantdwivedi%2FFlutter-WhatsApp-UI-Redesign)
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+<!-- PROJECT LOGO -->
+<br />
 
-A few resources to get you started if this is your first Flutter project:
+<p align="center">
+  <a href="https://github.com/shashikantdwivedi/Flutter-WhatsApp-UI-Redesign">
+    <img src="README/logo.webp" alt="Logo" width="110" height="100">
+  </a>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+  <h3 align="center">WhatsApp Redesign UI</h3>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  <p align="center">
+    A new design concept for whatsapp.
+    <br />
+  </p>
+
+
+
+
+
+<!-- TABLE OF CONTENTS -->
+
+## Table of Contents
+
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+![](README/ss1.jpg)
+
+## 
+
+![](README/ss2.jpg)
+
+## 
+
+![](README/ss3.jpg)
+
+## 
+
+![](README/ss4.jpg)
+
+
+
+This application shows a WhatsApp UI Redesign Concept.
+
+### Built With
+* [Dart](https://dart.dev)
+* [Flutter](https://flutter.dev)
+
+
+
+<!-- GETTING STARTED -->
+
+## Contact
+
+Shashikant Dwivedi - [@theskd1999](https://twitter.com/theskd1999) - shashikant@shashikantdwivedi.com
+
+Project Link: [https://github.com/shashikantdwivedi/Flutter-WhatsApp-UI-Redesign](https://github.com/shashikantdwivedi/Flutter-WhatsApp-UI-Redesign)
+
+
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+* [font_awesome_icons](https://pub.dev/packages/line_awesome_icons)
+* [provider](https://pub.dev/packages/provider)
